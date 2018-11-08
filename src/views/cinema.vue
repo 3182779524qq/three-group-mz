@@ -1,9 +1,9 @@
 <template>
   <div id="zxs-all">
     <!-- <div class="zxstoolbar"></div> -->
-    <ul class="zxs" @click="to">
-      <li v-for="(item,index) in cinema" :key="index" class="zxs-title">
-        <span @click.capture="to">{{ item }}</span>
+    <ul class="zxs">
+      <li v-for="(item,index) in cinema" :key="index" class="zxs-title" @click="to">
+        <p class="zxs-a">{{ item }}</p>
         <div id="zxs-dis">
           <ol class="zxs-content" v-for="(cer,ind) in cinemas" :key="ind" v-if="cer.district.name===item">
             <li class="zxs-cinema">
@@ -33,11 +33,14 @@ export default {
     to () {
       var e = event
       var target = e.target || e.srcElement
-      console.log(target.children)
-      if (window.getComputedStyle(target.children[1], null)['display'] === 'none') {
-        target.children[1].style.display = 'block'
-      } else {
-        target.children[1].style.display = 'none'
+
+      if (target.getAttribute('class') === 'zxs-a') {
+        console.log(target.parentNode.children)
+        if (window.getComputedStyle(target.parentNode.children[1], null)['display'] === 'none') {
+          target.parentNode.children[1].style.display = 'block'
+        } else {
+          target.parentNode.children[1].style.display = 'none'
+        }
       }
     }
   },
@@ -144,6 +147,9 @@ export default {
     width:0.18rem;
     height:0.17rem;
     margin-left:0.05rem;
+  }
+  .zxs-a{
+    padding-left:0.1rem;
   }
   /* .zxs-span{
     position:relative;
