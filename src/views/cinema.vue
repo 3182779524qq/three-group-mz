@@ -26,7 +26,8 @@ export default {
   /*  el: '#zxs-all', */
   data () {
     return {
-      cinemas: []
+      cinemas: [],
+      cityId: ''
     }
   },
   methods: {
@@ -41,6 +42,16 @@ export default {
           target.parentNode.children[1].style.display = 'none'
         }
       }
+    },
+    getCookie (key) {
+      var cookieStr = document.cookie
+      var arr = cookieStr.split('; ')
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].split('=')[0] === key) {
+          return arr[i].split('=')[1]
+        }
+      }
+      return ''
     }
   },
   computed: {
@@ -56,7 +67,12 @@ export default {
   },
   mounted () {
     const proxy = 'https://bird.ioliu.cn/v1/?url='
-    axios.get(proxy + 'https://m.maizuo.com/v4/api/cinema')
+    this.cityId = this.getCookie('cityId')
+    axios.get(proxy + 'https://m.maizuo.com/v4/api/cinema', {
+      params: {
+        cityId: parseInt(this.cityId) || 10
+      }
+    })
       .then(result => {
         var res = result.data
         console.log(res)

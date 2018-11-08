@@ -12,12 +12,12 @@
     <transition>
       <div class="left_nav" v-show="showleft">
         <ul>
-          <li @click="showab = false,showleft = false"><a href="#">首页</a><i class="fa fa-chevron-right"></i></li>
-          <li @click="showab = false,showleft = false"><router-link to='/file'>影片</router-link><i class="fa fa-chevron-right"></i></li>
-          <li @click="showab = false,showleft = false"><router-link to ="/cinema">影院</router-link><i class="fa fa-chevron-right"></i></li>
-          <li @click="showab = false,showleft = false"><a href="#">商城</a><i class="fa fa-chevron-right"></i></li>
-          <li @click="showab = false,showleft = false"><router-link to="/center">我的</router-link><i class="fa fa-chevron-right"></i></li>
-          <li @click="showab = false,showleft = false"><router-link to="card">卖座卡</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showab = false,showleft = false"><router-link class="linka" to='/'>首页<i class="fa fa-chevron-right"></i></router-link></li>
+          <li @click="showab = false,showleft = false"><router-link class="linka" to='/file'>影片<i class="fa fa-chevron-right"></i></router-link></li>
+          <li @click="showab = false,showleft = false"><router-link class="linka" to="/cinema">影院<i class="fa fa-chevron-right"></i></router-link></li>
+          <li @click="showab = false,showleft = false"><router-link class="linka" to='/'>商城<i class="fa fa-chevron-right"></i></router-link></li>
+          <li @click="showab = false,showleft = false"><router-link class="linka" to="/center">我的<i class="fa fa-chevron-right"></i></router-link></li>
+          <li @click="showab = false,showleft = false"><router-link class="linka" to="card">卖座卡<i class="fa fa-chevron-right"></i></router-link></li>
         </ul>
       </div>
     </transition>
@@ -86,6 +86,11 @@ html,body,#app{
   width: 100%;
   background: #282828;
   line-height: 0.5rem;
+}
+.linka{
+  display: block;
+  width: 100%;
+  height: 0.5rem;
 }
 .cfj_header_left{
   color: #999;
