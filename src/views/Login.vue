@@ -60,7 +60,10 @@ export default {
             }, {}).then((response) => {
               if (response.data.code === 1) {
                 alert('登录成功')
+                var id = Math.ceil(Math.random() * 100000 + 899999)
+                console.log(id)
                 document.cookie = `username = ${username.value}`
+                document.cookie = `id = ${id}`
                 this.$router.push('/center')
                 console.log('登录成功')
               } else {
@@ -88,7 +91,7 @@ export default {
     position: relative;
     background: #fff;
     color: #333;
-    font-size: 1.3rem;
+    font-size: 20px;
     text-align: center;
 }
 .go-back{
@@ -119,7 +122,7 @@ export default {
     overflow: hidden;
     position: relative;
     background: #fffbef;
-    font-size: 1rem;
+    font-size: 20px;
     color: #5f5e5e;
 }
 .notic-icon{
@@ -168,7 +171,7 @@ export default {
     border-radius: 50px;
     margin-bottom: 10px;
     font-family: STHeiti,microsoft yahei,arial,'\5b8b\4f53';
-    font-size: 1rem;
+    font-size: 15px;
 }
 .lxy-form .lxy-submit{
     width: 100%;
@@ -176,14 +179,14 @@ export default {
     line-height: 100%;
     background: #2692ff;
     text-align: center;
-    font-size: 1.15rem;
+    font-size: 20px;
     color: #fff;
 }
 .lxy-login-foter{
     height: 55px;
     padding: 0 10%;
     text-align: center;
-    font-size: 1rem;
+    font-size: 15px;
 }
 .lxy-login-foter span{
     font-weight: 400;
@@ -192,6 +195,6 @@ export default {
 .lxy-login-foter a{
     text-decoration: none;
     color: #333;
-    font-size: 1rem;
+    font-size: 15px;
 }
 </style>
