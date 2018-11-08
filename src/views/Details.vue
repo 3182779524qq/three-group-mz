@@ -68,14 +68,9 @@ export default {
 }
 </script>
 <style scoped>
-  html{
-    height: 100%;
-  }
-  body{
-    height: 100%;
-  }
   .details{
-    height: 100%;
+    flex: 1;
+    overflow: auto;
   }
   .phn{
     width: 100%;
@@ -107,11 +102,16 @@ export default {
   }
   .jieshao .film-word3{
     text-overflow: ellipsis;
+<<<<<<< HEAD
     overflow: hidden;
     min-height: 1.60rem;
+=======
+    min-height: 1.44rem;
+>>>>>>> d
     margin-bottom: .8rem;
     padding-left: .20rem;
     padding-right: .20rem;
+    display: block;
   }
   .jieshao .operation{
     position: fixed;

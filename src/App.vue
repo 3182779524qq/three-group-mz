@@ -60,6 +60,8 @@ html,body,#app{
   color: #2c3e50;
   background: #EBEBEB;
   /* margin-top: 60px; */
+  display: flex;
+  flex-direction: column;
 }
 .showab{
   position: fixed;

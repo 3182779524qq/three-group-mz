@@ -4,15 +4,15 @@
       GPS定位你所在城市
     </div>
     <div class="detail">
-      <span class="citli">深圳</span>
+      <span class="citli">{{cityn}}</span>
     </div>
     <div class="hot-city">
       <div class="city-tite">热门城市</div>
       <div class="detail">
-        <span class="citli cl">北京</span>
-        <span class="citli cl">上海</span>
-        <span class="citli cl">广州</span>
-        <span class="citli cl">深圳</span>
+        <span class="citli cl" @click = "baocun('北京', 12)">北京</span>
+        <span class="citli cl" @click = "baocun('上海', 11)">上海</span>
+        <span class="citli cl" @click = "baocun('广州', 13)">广州</span>
+        <span class="citli cl" @click = "baocun('深圳', 10)">深圳</span>
     </div>
     </div>
     <div class="index-city">
@@ -27,7 +27,7 @@
       <div v-for="(item,index) in addsrss" :key="index">
         <div class="city-tite" :id="item">{{item}}</div>
         <div class="detail">
-          <span class="citli cl" v-for="(adds,num) in getcity[index]" :key="num">{{adds}}</span>
+          <a class="citli cl" v-for="(adds,num) in getcity[index]" :key="num" @click="baocun(adds.name,adds.id)">{{adds.name}}</a>
         </div>
       </div>
     </div>
@@ -41,7 +41,8 @@ export default {
     return {
       getcity: [],
       letter: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-      addsrss: []
+      addsrss: [],
+      cityn: ''
     }
   },
   methods: {
@@ -53,7 +54,7 @@ export default {
             var newarr = []
             for (var j = 0; j < str.length; j++) {
               if (this.letter[i] === str[j].pinyin.charAt(0)) {
-                newarr.push(str[j].name)
+                newarr.push({name: str[j].name, id: str[j].id})
               }
             }
             if (newarr.length !== 0) {
@@ -70,9 +71,26 @@ export default {
     },
     returnTop (item) {
       document.querySelector(`#${item}`).scrollIntoView(true)
+    },
+    baocun (name, id) {
+      document.cookie = `cityId = ${id}`
+      document.cookie = `cityName = ${name}`
+      this.$router.push('/')
+    },
+    cityname () {
+      axios.get('https://bird.ioliu.cn/v2/?url=https://apis.map.qq.com/ws/location/v1/ip?ip=113.92.93.53&key=TKUBZ-D24AF-GJ4JY-JDVM2-IBYKK-KEBCU').then(result => {
+        var src = result.data.result.ad_info
+        if (result.status === 200) {
+          this.cityn = src.city
+          document.cookie = "cityId = 10"
+          document.cookie = `cityName = ${src.city}`
+          console.log(src)
+        }
+      })
     }
   },
   mounted () {
+    this.cityname()
     this.getdata()
   }
 }
