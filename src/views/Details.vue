@@ -30,7 +30,7 @@
         {{getlist.synopsis}}
       </div>
       <div class="operation">
-        <button class="btn">立即购票</button>
+        <button class="btn"><router-link to="/cinema">立即购票</router-link></button>
       </div>
     </div>
   </div>
@@ -125,7 +125,9 @@ export default {
     padding: 0;
     margin: 0;
     border-radius: .18rem;
-    color: #fff;
     outline: none;
+  }
+  .jieshao .operation .btn a{
+    color: #fff;
   }
 </style>

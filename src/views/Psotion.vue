@@ -82,7 +82,7 @@ export default {
         var src = result.data.result.ad_info
         if (result.status === 200) {
           this.cityn = src.city
-          document.cookie = "cityId = 10"
+          document.cookie = 'cityId = 10'
           document.cookie = `cityName = ${src.city}`
           console.log(src)
         }
