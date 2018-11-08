@@ -18,7 +18,8 @@ var jsonWrite = function (res, ret) {
     res.json({code:0,msg:'保存成功'});
   }
 };
-//位唯一用户验证
+
+//唯一用户验证
 router.post('/onlyUser', (req, res) => {
   var sql = $sql.user.onlyUser;
   var params = req.body;
@@ -49,6 +50,26 @@ router.post('/addUser', (req, res) => {
     }
     if (result) {
       jsonWrite(res, result);
+    }
+  })
+});
+
+//用户登录接口
+router.post('/login', (req, res) => {
+  var sql = $sql.user.login;
+  var params = req.body;
+  console.log(params);
+  conn.query(sql, [params.username, params.password], function (err, result) {
+    if (err) {
+      console.log(err);
+      res.json({ code: 101, msg: '查询失败' });
+    }
+    if (result) {
+      if (result.length >= 1) {
+        res.json({ code: 1, msg: '用户名存在,密码正确' });
+      } else {
+        res.json(result,{ code: 0, msg: '密码错误，重新输入密码' });
+      }
     }
   })
 });
