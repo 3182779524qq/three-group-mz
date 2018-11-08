@@ -102,12 +102,7 @@ export default {
   }
   .jieshao .film-word3{
     text-overflow: ellipsis;
-<<<<<<< HEAD
-    overflow: hidden;
-    min-height: 1.60rem;
-=======
     min-height: 1.44rem;
->>>>>>> d
     margin-bottom: .8rem;
     padding-left: .20rem;
     padding-right: .20rem;
