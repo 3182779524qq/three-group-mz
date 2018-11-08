@@ -4,12 +4,18 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-Vue.config.productionTip = false
+import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  components: { App }
 })
+
+// 此处需要use后，this.$http.get或者this.$http.post才可以
+Vue.use(VueRouter)
+Vue.use(VueResource)

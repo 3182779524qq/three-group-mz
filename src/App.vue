@@ -1,7 +1,15 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+     <ul>
+      <li>
+        <router-link to="/">首页</router-link>
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+      </li>
+    </ul>
+    <div>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -19,5 +27,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+li{
+  list-style: none;
 }
 </style>
