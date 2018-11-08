@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
-<<<<<<< HEAD
     <div class="header">
       <header class="cfj_header">
         <div class="cfj_header_left" @click="showleft = !showleft">
           三
         </div>
         <div><p>卖座电影</p></div>
-        <div class="cfj_address"><a>深圳</a></div>
+        <div class="cfj_address"><router-link to='/city'>深圳</router-link></div>
         <div class="cfj_my">@2</div>
       </header>
     </div>
@@ -16,36 +14,19 @@
       <div class="left_nav" v-show="showleft">
         <ul>
           <li><a href="#">首页</a></li>
-          <li><a href="#">影片</a></li>
-          <li><a href="#">影院</a></li>
+          <li><router-link to='/file'>影片</router-link></li>
+          <li><router-link to ="/cinema">影院</router-link></li>
           <li><a href="#">商城</a></li>
-          <li><a href="#">我的</a></li>
+          <li><router-link to="/center">我的</router-link></li>
           <li><router-link to="card">卖座卡</router-link></li>
         </ul>
       </div>
     </transition>
-=======
-    <button>
-      <router-link to='/file'>影片</router-link>
-    </button>
-    <button>
-      <router-link to='/city'>城市</router-link>
-    </button>
->>>>>>> hq
-=======
-    <button>
-      <router-link to ="/cinema">影院</router-link>
-    </button>
-    <button>
-      <router-link to="/center">我的</router-link>
-    </button>
->>>>>>> zxs
     <router-view/>
   </div>
 </template>
 <script>
 export default {
-  // showleft:{},
   data () {
     return {
       showleft: false
@@ -54,7 +35,6 @@ export default {
   name: 'App'
 }
 </script>
-<<<<<<< HEAD
 <style scoped>
 p,a{
   color: #EFEFCC;
@@ -63,7 +43,6 @@ html,body,#app{
   height: 100%;
 }
 #app {
-<<<<<<< HEAD
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -96,9 +75,6 @@ html,body,#app{
 .cfj_address{
   /* float: right; */
   margin-left: 1.5rem;
-=======
-  background:#EBEBEB;
->>>>>>> zxs
 }
 .left_nav{
   z-index: 9;
@@ -132,12 +108,4 @@ ul li{
 .v-leave-to {
   transform: translateX(-100%);
 }
-=======
-
-<style>
-  #app{
-    background: #ebebeb;
-    height: 100%;
-  }
->>>>>>> hq
 </style>
