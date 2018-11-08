@@ -12,12 +12,12 @@
     <transition>
       <div class="left_nav" v-show="showleft">
         <ul>
-          <li @click="showleft = false"><a href="#">首页</a><i class="fa fa-chevron-right"></i></li>
-          <li @click="showleft = false"><router-link to='/file'>影片</router-link><i class="fa fa-chevron-right"></i></li>
-          <li @click="showleft = false"><router-link to ="/cinema">影院</router-link><i class="fa fa-chevron-right"></i></li>
-          <li @click="showleft = false"><a href="#">商城</a><i class="fa fa-chevron-right"></i></li>
-          <li @click="showleft = false"><router-link to="/center">我的</router-link><i class="fa fa-chevron-right"></i></li>
-          <li @click="showleft = false"><router-link to="card">卖座卡</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showab = false,showleft = false"><a href="#">首页</a><i class="fa fa-chevron-right"></i></li>
+          <li @click="showab = false,showleft = false"><router-link to='/file'>影片</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showab = false,showleft = false"><router-link to ="/cinema">影院</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showab = false,showleft = false"><a href="#">商城</a><i class="fa fa-chevron-right"></i></li>
+          <li @click="showab = false,showleft = false"><router-link to="/center">我的</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showab = false,showleft = false"><router-link to="card">卖座卡</router-link><i class="fa fa-chevron-right"></i></li>
         </ul>
       </div>
     </transition>
@@ -39,7 +39,7 @@ export default {
   data () {
     return {
       showleft: false,
-      showdb: false
+      showab: false
     }
   },
   name: 'App'
@@ -66,7 +66,7 @@ html,body,#app{
 .showab{
   position: fixed;
   left: 0;
-  top: 0.5rem;
+  top: 0;
   width: 100%;
   height: 100%;
   z-index: 8;
@@ -77,7 +77,7 @@ html,body,#app{
   width: 100%;
 }
 .cfj_header{
-  z-index: 10;
+  z-index: 7;
   position: fixed;
   top: 0;
   left: 0;
