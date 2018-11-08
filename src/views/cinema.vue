@@ -33,9 +33,8 @@ export default {
     to () {
       var e = event
       var target = e.target || e.srcElement
-
+      console.log(target.parentNode.children)
       if (target.getAttribute('class') === 'zxs-a') {
-        console.log(target.parentNode.children)
         if (window.getComputedStyle(target.parentNode.children[1], null)['display'] === 'none') {
           target.parentNode.children[1].style.display = 'block'
         } else {
