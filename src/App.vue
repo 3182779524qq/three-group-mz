@@ -5,7 +5,7 @@
         <div class="cfj_header_left" @click="showleft = !showleft,showab = !showab"><i class="fa fa-bars fa-lg"></i></div>
         <div><p>卖座电影</p></div>
         <div class="cfj_address"><router-link to='/city'>深圳</router-link></div>
-        <div class="cfj_my"><i class="fa fa-user-o"></i></div>
+        <div class="cfj_my"><router-link to="/register"><i class="fa fa-user-o"></i></router-link></div>
       </header>
     </div>
     <div class="showab" v-show="showab" @click="showleft = false,showab = false"></div>
