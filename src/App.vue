@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <div class="header">
       <header class="cfj_header">
         <div class="cfj_header_left" @click="showleft = !showleft">
@@ -22,6 +23,14 @@
         </ul>
       </div>
     </transition>
+=======
+    <button>
+      <router-link to='/file'>影片</router-link>
+    </button>
+    <button>
+      <router-link to='/city'>城市</router-link>
+    </button>
+>>>>>>> hq
     <router-view/>
   </div>
 </template>
@@ -36,6 +45,7 @@ export default {
   name: 'App'
 }
 </script>
+<<<<<<< HEAD
 <style scoped>
 p,a{
   color: #EFEFCC;
@@ -109,4 +119,12 @@ ul li{
 .v-leave-to {
   transform: translateX(-100%);
 }
+=======
+
+<style>
+  #app{
+    background: #ebebeb;
+    height: 100%;
+  }
+>>>>>>> hq
 </style>

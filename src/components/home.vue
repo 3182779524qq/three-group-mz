@@ -193,7 +193,4 @@ li {
   display: inline-block;
   margin: 0 17px 17px 17px;
 }
-a {
-  /* color: #EFEFCC; */
-}
 </style>
