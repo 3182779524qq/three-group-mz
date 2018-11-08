@@ -1,32 +1,32 @@
 <template>
   <div>
     <div class="pb-warp">
-        <div class="wap-header">
-            <a href="" class="go-back"></a>
-            手机快捷登录
+      <div class="wap-header">
+        <a href="" class="go-back"></a>
+        手机快捷登录
+      </div>
+      <div class="loginWrap">
+        <div class="loginWrap-body">
+          <div class="login-notice">
+            <i class="notic-icon"></i>
+            <a href="" class="notic-a">
+              关于进行收集实名认证的公告
+              <i class="link-icon"></i>
+            </a>
+          </div>
+          <div class="lxy-login-form">
+            <form action="javascript:;" class="lxy-form">
+              <input id="uesrname" type="text" placeholder="请输入用户名">
+              <input id="password" type="password" placeholder="请输入密码">
+              <input @click="login" type="submit" value="登录" class="lxy-submit">
+            </form>
+          </div>
         </div>
-        <div class="loginWrap">
-            <div class="loginWrap-body">
-                <div class="login-notice">
-                    <i class="notic-icon"></i>
-                    <a href="" class="notic-a">
-                        关于进行收集实名认证的公告
-                        <i class="link-icon"></i>
-                    </a>
-                </div>
-                <div class="lxy-login-form">
-                    <form action="javascript:;" class="lxy-form">
-                        <input id="uesrname" type="text" placeholder="请输入用户名">
-                        <input id="password" type="password" placeholder="请输入密码">
-                        <input @click="addUser" type="submit" value="登录" class="lxy-submit">
-                    </form>
-                </div>
-            </div>
-            <div class="lxy-login-foter">
-                <span>还没有账号？</span>
-                <a href="#/register">立即注册</a>
-            </div>
+        <div class="lxy-login-foter">
+          <span>还没有账号？</span>
+          <a href="#/register">立即注册</a>
         </div>
+      </div>
     </div>
   </div>
 </template>
@@ -40,25 +40,38 @@ export default {
     }
   },
   methods: {
-    addUser (params) {
+    login (params) {
       let username = document.querySelector('#uesrname')
       let password = document.querySelector('#password')
       console.log(password.value)
       console.log(username.value)
-      axios.post('/api/user/onlyUser', {
-        username: username.value
-      }).then((result) => {
-        var rest = result.data
-        if (rest.code === 1) {
-          alert('改用户名已存在，请重新输入')
-        }
-      })
-      axios.post('/api/user/addUser', {
-        username: username.value,
-        password: password.value
-      }, {}).then((response) => {
-        console.log(response)
-      })
+      if (password.value === '' || username.value === '') {
+        alert('用户名，密码不能为空')
+      } else {
+        axios.post('/api/user/onlyUser', {
+          username: username.value
+        }, {}).then((result) => {
+          var rest = result.data
+          if (rest.code === 1) {
+            console.log('登录查询用户名成功')
+            axios.post('/api/user/login', {
+              username: username.value,
+              password: password.value
+            }, {}).then((response) => {
+              if (response.data.code === 1) {
+                alert('登录成功')
+                document.cookie = `username = ${username.value}`
+                this.$router.push('/center')
+                console.log('登录成功')
+              } else {
+                alert('密码错误，请重新输入')
+              }
+            })
+          } else {
+            alert('该用户名不存在，请重新输入')
+          }
+        })
+      }
     }
   }
 }
