@@ -2,23 +2,22 @@
   <div id="app">
     <div class="header">
       <header class="cfj_header">
-        <div class="cfj_header_left" @click="showleft = !showleft">
-          三
-        </div>
+        <div class="cfj_header_left" @click="showleft = !showleft,showab = !showab"><i class="fa fa-bars fa-lg"></i></div>
         <div><p>卖座电影</p></div>
         <div class="cfj_address"><router-link to='/city'>深圳</router-link></div>
-        <div class="cfj_my">@2</div>
+        <div class="cfj_my"><i class="fa fa-user-o"></i></div>
       </header>
     </div>
+    <div class="showab" v-show="showab" @click="showleft = false,showab = false"></div>
     <transition>
       <div class="left_nav" v-show="showleft">
         <ul>
-          <li><a href="#">首页</a></li>
-          <li><router-link to='/file'>影片</router-link></li>
-          <li><router-link to ="/cinema">影院</router-link></li>
-          <li><a href="#">商城</a></li>
-          <li><router-link to="/center">我的</router-link></li>
-          <li><router-link to="card">卖座卡</router-link></li>
+          <li @click="showleft = false"><a href="#">首页</a><i class="fa fa-chevron-right"></i></li>
+          <li @click="showleft = false"><router-link to='/file'>影片</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showleft = false"><router-link to ="/cinema">影院</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showleft = false"><a href="#">商城</a><i class="fa fa-chevron-right"></i></li>
+          <li @click="showleft = false"><router-link to="/center">我的</router-link><i class="fa fa-chevron-right"></i></li>
+          <li @click="showleft = false"><router-link to="card">卖座卡</router-link><i class="fa fa-chevron-right"></i></li>
         </ul>
       </div>
     </transition>
@@ -39,7 +38,8 @@
 export default {
   data () {
     return {
-      showleft: false
+      showleft: false,
+      showdb: false
     }
   },
   name: 'App'
@@ -61,6 +61,15 @@ html,body,#app{
   background: #EBEBEB;
   /* margin-top: 60px; */
 }
+.showab{
+  position: fixed;
+  left: 0;
+  top: 0.5rem;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  background: rgba(51, 51, 51, 0.7);
+}
 .header{
   height: 0.5rem;
   width: 100%;
@@ -77,14 +86,20 @@ html,body,#app{
   line-height: 0.5rem;
 }
 .cfj_header_left{
-  color: yellow;
+  color: #999;
   height: 0.5rem;
   width: 0.5rem;
   margin-right: 0.25rem;
+  border-right: 1px solid #2c3e50;
+  text-align: center;
 }
 .cfj_address{
   /* float: right; */
   margin-left: 1.5rem;
+}
+.cfj_my{
+  color: #999;
+  padding-left: 0.15rem;
 }
 .left_nav{
   z-index: 9;
@@ -93,6 +108,13 @@ html,body,#app{
   left: 0;
   width: 2.6rem;
   height: 100%;
+}
+.left_nav i{
+  float: right;
+  margin-right: 0.15rem;
+  text-align: center;
+  line-height: 0.5rem;
+  color: #EFEFCC;
 }
 ul{
   position: absolute;
@@ -103,17 +125,20 @@ ul{
   background: #282828;
 }
 ul li{
-  width: 100%;
+  width: 2.25rem;
   height: 0.5rem;
+  padding-left: 0.35rem;
+  line-height: 0.5rem;
+  border-bottom: 1px solid #333;
 }
 .v-enter {
   transform: translateX(-100%);
 }
 .v-enter-active {
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .v-leave-active {
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .v-leave-to {
   transform: translateX(-100%);
