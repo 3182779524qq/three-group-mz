@@ -4,7 +4,7 @@
       GPS定位你所在城市
     </div>
     <div class="detail">
-      <span class="citli">深圳</span>
+      <span class="citli">{{cityn}}</span>
     </div>
     <div class="hot-city">
       <div class="city-tite">热门城市</div>
@@ -49,7 +49,6 @@ export default {
     getdata () {
       axios.get(api + 'https://m.maizuo.com/v4/api/city').then(result => {
         if (result.status === 200) {
-          console.log(1)
           var str = result.data.data.cities
           for (var i = 0; i < this.letter.length; i++) {
             var newarr = []
@@ -79,11 +78,13 @@ export default {
       this.$router.push('/')
     },
     cityname () {
-      axios.get('http://ip-api.com/json').then(result => {
-        var src = result.data
+      axios.get('https://bird.ioliu.cn/v2/?url=https://apis.map.qq.com/ws/location/v1/ip?ip=113.92.93.53&key=TKUBZ-D24AF-GJ4JY-JDVM2-IBYKK-KEBCU').then(result => {
+        var src = result.data.result.ad_info
         if (result.status === 200) {
           this.cityn = src.city
-          console.log(2)
+          document.cookie = "cityId = 10"
+          document.cookie = `cityName = ${src.city}`
+          console.log(src)
         }
       })
     }
