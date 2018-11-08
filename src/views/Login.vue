@@ -45,6 +45,7 @@ export default {
       let password = document.querySelector('#password')
       console.log(password.value)
       console.log(username.value)
+
       if (password.value === '' || username.value === '') {
         alert('用户名，密码不能为空')
       } else {
@@ -91,7 +92,7 @@ export default {
     position: relative;
     background: #fff;
     color: #333;
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
 }
 .go-back{
@@ -122,7 +123,7 @@ export default {
     overflow: hidden;
     position: relative;
     background: #fffbef;
-    font-size: 20px;
+    font-size: 12px;
     color: #5f5e5e;
 }
 .notic-icon{
@@ -169,7 +170,7 @@ export default {
     outline: none;
     border: 1px solid #d4cdcd;
     border-radius: 50px;
-    margin-bottom: 10px;
+    margin: 30px 0;
     font-family: STHeiti,microsoft yahei,arial,'\5b8b\4f53';
     font-size: 15px;
 }
