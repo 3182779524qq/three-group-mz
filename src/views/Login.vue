@@ -60,6 +60,8 @@ export default {
             }, {}).then((response) => {
               if (response.data.code === 1) {
                 alert('登录成功')
+                var storage = window.localStorage
+                storage['username'] = `${username.value}`
                 document.cookie = `username = ${username.value}`
                 this.$router.push('/center')
                 console.log('登录成功')
