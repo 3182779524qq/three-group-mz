@@ -60,9 +60,10 @@ export default {
             }, {}).then((response) => {
               if (response.data.code === 1) {
                 alert('登录成功')
-                var storage = window.localStorage
-                storage['username'] = `${username.value}`
+                var id = Math.ceil(Math.random() * 100000 + 899999)
+                console.log(id)
                 document.cookie = `username = ${username.value}`
+                document.cookie = `id = ${id}`
                 this.$router.push('/center')
                 console.log('登录成功')
               } else {
