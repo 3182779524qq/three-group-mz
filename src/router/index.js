@@ -7,9 +7,9 @@ import Filecom from '@/views/Filecom.vue'
 import Filenow from '@/views/Filenow.vue'
 import Details from '@/views/Details.vue'
 import Psotion from '@/views/Psotion.vue'
-
+import Cinema from '@/views/cinema.vue'
+import Center from '@/views/center.vue'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -50,8 +50,12 @@ export default new Router({
       component: Psotion
     },
     {
-      path: '/city/',
-      redirect: '/city'
+      path: '/cinema',
+      component: Cinema
+    },
+    {
+      path: '/center',
+      component: Center
     }
   ]
 })

@@ -1,0 +1,16 @@
+/* CSS Document */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, img,input,span,textarea,fieldset{
+	padding:0; margin:0;
+}
+a{ text-decoration:none; color:#696969;}
+img { border:none; }
+body { color:#333; font:.12rem/.2rem "微软雅黑","Arial Narrow",HELVETICA;}
+input{ outline:none; cursor:pointer;}
+ul li,ol li{ list-style:none;}
+i,em{ font-style:normal;}
+b,stong{ font-weight:normal;}
+
+
+.border0{border:0;}
+.fl{ float:left;}
+.fr{ float:right;}

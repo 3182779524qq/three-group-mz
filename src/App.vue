@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="header">
       <header class="cfj_header">
         <div class="cfj_header_left" @click="showleft = !showleft">
@@ -31,6 +32,14 @@
       <router-link to='/city'>城市</router-link>
     </button>
 >>>>>>> hq
+=======
+    <button>
+      <router-link to ="/cinema">影院</router-link>
+    </button>
+    <button>
+      <router-link to="/center">我的</router-link>
+    </button>
+>>>>>>> zxs
     <router-view/>
   </div>
 </template>
@@ -54,6 +63,7 @@ html,body,#app{
   height: 100%;
 }
 #app {
+<<<<<<< HEAD
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -86,6 +96,9 @@ html,body,#app{
 .cfj_address{
   /* float: right; */
   margin-left: 1.5rem;
+=======
+  background:#EBEBEB;
+>>>>>>> zxs
 }
 .left_nav{
   z-index: 9;
