@@ -75,6 +75,10 @@ export default {
   body{
     background:#EBEBEB;
   }
+  #zxs-all{
+    flex: 1;
+    overflow: auto;
+  }
   .zxs-title {
     font-size: 0.14rem;
     color: #636363;
