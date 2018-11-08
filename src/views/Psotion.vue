@@ -9,10 +9,10 @@
     <div class="hot-city">
       <div class="city-tite">热门城市</div>
       <div class="detail">
-        <span class="citli cl" @click = "baocun('北京', 12)">北京</span>
-        <span class="citli cl" @click = "baocun('上海', 11)">上海</span>
-        <span class="citli cl" @click = "baocun('广州', 13)">广州</span>
-        <span class="citli cl" @click = "baocun('深圳', 10)">深圳</span>
+        <span class="citli cl nocl" @click = "baocun('北京', 12)">北京</span>
+        <span class="citli cl nocl" @click = "baocun('上海', 11)">上海</span>
+        <span class="citli cl nocl" @click = "baocun('广州', 13)">广州</span>
+        <span class="citli cl nocl" @click = "baocun('深圳', 10)">深圳</span>
     </div>
     </div>
     <div class="index-city">
@@ -27,7 +27,7 @@
       <div v-for="(item,index) in addsrss" :key="index">
         <div class="city-tite" :id="item">{{item}}</div>
         <div class="detail">
-          <a class="citli cl" v-for="(adds,num) in getcity[index]" :key="num" @click="baocun(adds.name,adds.id)">{{adds.name}}</a>
+          <a class="citli cl yanshi" v-for="(adds,num) in getcity[index]" :key="num" @click="baocun(adds.name,adds.id)">{{adds.name}}</a>
         </div>
       </div>
     </div>
@@ -115,9 +115,16 @@ export default {
     text-align: center;
     display: inline-block;
     cursor: pointer;
-    border-bottom: #ebebeb 1px solid;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   .detail .cl{
     color: #838383;
+    border-bottom: #ebebeb 1px solid;
+    box-sizing: border-box;
+  }
+  .detail .nocl{
+    border-bottom:0;
   }
 </style>
