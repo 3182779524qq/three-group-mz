@@ -7,10 +7,10 @@
         </div>
         <div class="loginWrap">
             <div class="lxy-login-form">
-                <form action="" class="lxy-form">
-                    <input type="text" placeholder="请输入用户名">
-                    <input type="password" placeholder="请输入密码">
-                    <input type="submit" value="注册" class="lxy-submit">
+                <form action="javascript:;" class="lxy-form">
+                    <input id="uesrname" type="text" placeholder="请输入用户名">
+                    <input id="password" type="password" placeholder="请输入密码">
+                    <input @click="addUser" type="submit" value="注册" class="lxy-submit">
                 </form>
             </div>
         </div>
@@ -22,7 +22,45 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
+  data () {
+    return {
+      userName: '',
+      password: ''
+    }
+  },
+  methods: {
+    addUser (params) {
+      let username = document.querySelector('#uesrname')
+      let password = document.querySelector('#password')
+      console.log(password.value)
+      console.log(username.value)
+      if (password.value === '' || username.value === '') {
+        alert('用户名，密码不能为空')
+      } else {
+        axios.post('/api/user/onlyUser', {
+          username: username.value
+        }, {}).then((result) => {
+          var rest = result.data
+          if (rest.code === 1) {
+            alert('该用户名已存在，请重新输入')
+          } else {
+            axios.post('/api/user/addUser', {
+              username: username.value,
+              password: password.value
+            }, {}).then((response) => {
+              console.log(response)
+              if (response.data.code === 0) {
+                alert('注册成功,走，登录去')
+                this.$router.push('/login')
+              }
+            })
+          }
+        })
+      }
+    }
+  }
 }
 </script>
 <style scoped>
