@@ -23,6 +23,16 @@
       </div>
     </transition>
     <router-view/>
+     <!-- <ul>
+      <li>
+        <router-link to="/">首页</router-link>
+        <router-link to="/login">登录</router-link>
+        <router-link to="/register">注册</router-link>
+      </li>
+    </ul>
+    <div>
+      <router-view/>
+    </div> -->
   </div>
 </template>
 <script>
@@ -107,5 +117,8 @@ ul li{
 }
 .v-leave-to {
   transform: translateX(-100%);
+}
+li{
+  list-style: none;
 }
 </style>

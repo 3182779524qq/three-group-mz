@@ -9,6 +9,9 @@ import Details from '@/views/Details.vue'
 import Psotion from '@/views/Psotion.vue'
 import Cinema from '@/views/cinema.vue'
 import Center from '@/views/center.vue'
+import Login from '@/views/Login'
+import Register from '@/views/Register'
+
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -56,6 +59,14 @@ export default new Router({
     {
       path: '/center',
       component: Center
+    },
+    {
+      path: '/login',
+      component: Login
+    },
+    {
+      path: '/register',
+      component: Register
     }
   ]
 })

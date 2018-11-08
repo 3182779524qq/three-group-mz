@@ -14,8 +14,14 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+<<<<<<< HEAD
     "swiper": "^4.4.2",
+=======
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+>>>>>>> b
     "vue": "^2.5.2",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
