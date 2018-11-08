@@ -46,13 +46,12 @@ export default {
       console.log(password.value)
       console.log(username.value)
       axios.post('/api/user/onlyUser', {
-          username: username.value
-      }, {}).then((result) => {
-          var rest = result.data
-          if (rest.code === 1) {
-              alert('改用户名已存在，请重新输入')
-              return
-          }
+        username: username.value
+      }).then((result) => {
+        var rest = result.data
+        if (rest.code === 1) {
+          alert('改用户名已存在，请重新输入')
+        }
       })
       axios.post('/api/user/addUser', {
         username: username.value,

@@ -20,7 +20,7 @@ export default {
     return {
       isactive: true
     }
-  },
+  }
 }
 </script>
 <style scoped>

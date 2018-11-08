@@ -8,3 +8,5 @@ input{ outline:none; cursor:pointer;}
 ul li,ol li{ list-style:none;}
 i,em{ font-style:normal;}
 b,stong{ font-weight:normal;}
+div{text-align: left;}
+
