@@ -62,7 +62,6 @@ export default {
               if (response.data.code === 1) {
                 alert('登录成功')
                 var id = Math.ceil(Math.random() * 100000 + 899999)
-                console.log(id)
                 document.cookie = `username = ${username.value}`
                 document.cookie = `id = ${id}`
                 this.$router.push('/center')

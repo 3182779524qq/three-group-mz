@@ -23,7 +23,7 @@ var jsonWrite = function (res, ret) {
 router.post('/onlyUser', (req, res) => {
   var sql = $sql.user.onlyUser;
   var params = req.body;
-  console.log(params);
+  console.log('进入查询用户名的路由');
   conn.query(sql, params.username, function (err, result) {
     if (err) {
       console.log(err);
@@ -43,7 +43,7 @@ router.post('/onlyUser', (req, res) => {
 router.post('/addUser', (req, res) => {
   var sql = $sql.user.add;
   var params = req.body;
-  console.log(params);
+  console.log('进入注册的路由');
   conn.query(sql, [params.username, params.password], function (err, result) {
     if (err) {
       console.log(err);
@@ -58,18 +58,18 @@ router.post('/addUser', (req, res) => {
 router.post('/login', (req, res) => {
   var sql = $sql.user.login;
   var params = req.body;
-  console.log(params);
+  console.log('进入登录路由了');
   conn.query(sql, [params.username, params.password], function (err, result) {
     if (err) {
       console.log(err);
       res.json({ code: 101, msg: '查询失败' });
     }
-    if (result) {
-      if (result.length >= 1) {
-        res.json({ code: 1, msg: '用户名存在,密码正确' });
-      } else {
-        res.json(result,{ code: 0, msg: '密码错误，重新输入密码' });
-      }
+    if (result.length >= 1) {
+      console.log('进入密码查询正确');
+      res.json({ code: 1, msg: '用户名存在,密码正确' });
+    } else {
+      console.log('进入密码查询错误');
+      res.send({ code: 0, msg: '密码错误，重新输入密码' });
     }
   })
 });

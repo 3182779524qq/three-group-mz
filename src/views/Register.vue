@@ -9,11 +9,11 @@
             <div class="lxy-login-form">
                 <form action="javascript:;" class="lxy-form">
                   <div class="regparent">
-                    <input id="uesrname" type="text" @change="regusername" @click="tonone" placeholder="请输入用户名">
+                    <input id="uesrname" type="text" @change="regusername" @click="usenone" placeholder="请输入用户名">
                     <p id="regusernaem" class="reg">用户名必须为二至十位的中文</p>
                   </div>
                   <div class="regparent">
-                    <input id="password" type="password" @change="regpassword" @click="tonone" placeholder="请输入密码">
+                    <input id="password" type="password" @change="regpassword" @click="pwdnone" placeholder="请输入密码">
                     <p id="regpassword" class="reg">密码需要是3-10位字母或数字</p>
                   </div>
                   <input @click="addUser" type="submit" value="注册" class="lxy-submit">
@@ -37,10 +37,12 @@ export default {
     }
   },
   methods: {
-    tonone () {
+    usenone () {
       var regusernaem = document.querySelector('#regusernaem')
-      var regpassword = document.querySelector('#regpassword')
       regusernaem.style.display = 'none'
+    },
+    pwdnone () {
+      var regpassword = document.querySelector('#regpassword')
       regpassword.style.display = 'none'
     },
     regusername () {
@@ -48,7 +50,7 @@ export default {
       var regusernaem = document.querySelector('#regusernaem')
       var reguser = /^[\u4e00-\u9fa5]{2,10}$/
       if (reguser.test(username.value)) {
-         console.log('可以用')
+        console.log('可以用')
       } else {
         username.value = ''
         regusernaem.style.display = 'block'
