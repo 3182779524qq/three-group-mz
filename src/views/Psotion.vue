@@ -96,6 +96,10 @@ export default {
 }
 </script>
 <style>
+  .city{
+    flex: 1;
+    overflow: auto;
+  }
   .city-tite{
     padding-left: .15rem;
     font-size: .14rem;

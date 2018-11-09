@@ -22,6 +22,8 @@ export default {
         padding-right: .15rem;
         background-color: #f9f9f9;
         height: 100%;
+        flex: 1;
+        overflow: auto;
     }
     .hot{
         height: .46rem;

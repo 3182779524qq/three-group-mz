@@ -4,7 +4,7 @@
       <header class="cfj_header">
         <div class="cfj_header_left" @click="showleft = !showleft,showab = !showab"><i class="fa fa-bars fa-lg"></i></div>
         <div><p>卖座电影</p></div>
-        <div class="cfj_address"><router-link to='/city'>深圳</router-link></div>
+        <div class="cfj_address"><router-link to='/city'>{{this.adress}}</router-link></div>
         <div class="cfj_my"><router-link to="/register"><i class="fa fa-user-o"></i></router-link></div>
       </header>
     </div>
@@ -17,7 +17,7 @@
           <li @click="showab = false,showleft = false"><router-link class="linka" to="/cinema">影院<i class="fa fa-chevron-right"></i></router-link></li>
           <li @click="showab = false,showleft = false"><router-link class="linka" to='/'>商城<i class="fa fa-chevron-right"></i></router-link></li>
           <li @click="showab = false,showleft = false"><router-link class="linka" to="/center">我的<i class="fa fa-chevron-right"></i></router-link></li>
-          <li @click="showab = false,showleft = false"><router-link class="linka" to="card">卖座卡<i class="fa fa-chevron-right"></i></router-link></li>
+          <li @click="showab = false,showleft = false"><router-link class="linka" to="/card">卖座卡<i class="fa fa-chevron-right"></i></router-link></li>
         </ul>
       </div>
     </transition>
@@ -39,8 +39,27 @@ export default {
   data () {
     return {
       showleft: false,
-      showab: false
+      showab: false,
+      adress: ''
     }
+  },
+  methods: {
+    getCookie (key) {
+      var cookieStr = document.cookie
+      var arr = cookieStr.split('; ')
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].split('=')[0] === key) {
+          return arr[i].split('=')[1]
+        }
+      }
+      return ''
+    }
+  },
+  mounted () {
+    this.adress = this.getCookie('cityName') || '深圳'
+  },
+  updated () {
+    this.adress = this.getCookie('cityName') || '深圳'
   },
   name: 'App'
 }
