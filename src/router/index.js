@@ -74,10 +74,10 @@ const router = new Router({
   ]
 })
 router.beforeEach(function (to, from, next) {
-  /* console.log(to)
-  console.log(document.cookie.username) */
+  console.log(to)
+  console.log(document.cookie)
   if (to.meta.needLogin) {
-    if (document.cookie.username) {
+    if (document.cookie) {
       next()
     } else {
       next('/login')
