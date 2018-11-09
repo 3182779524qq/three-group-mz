@@ -13,7 +13,7 @@ import Login from '@/views/Login'
 import Register from '@/views/Register'
 
 Vue.use(Router)
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -58,10 +58,13 @@ export default new Router({
     },
     {
       path: '/center',
+      name: 'center',
+      meta: { needLogin: true },
       component: Center
     },
     {
       path: '/login',
+      name: 'Login',
       component: Login
     },
     {
@@ -70,3 +73,17 @@ export default new Router({
     }
   ]
 })
+router.beforeEach(function (to, from, next) {
+  /* console.log(to)
+  console.log(document.cookie.username) */
+  if (to.meta.needLogin) {
+    if (document.cookie.username) {
+      next()
+    } else {
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
+export default router
