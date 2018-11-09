@@ -3,9 +3,9 @@
     <div class="center-header-wrap">
       <img src="../../static/img/zxs_my.jpg" class="avatar">
       <div class="userMessage">
-        <p class="zxs-username"><span>手机用户1468</span></p>
-        <p class="zxs-email"><span>id:1324354656</span></p>
-        <p class="zxs-operation"><span class="operation">退出</span></p>
+        <p class="zxs-username"><span>{{ username }}</span></p>
+        <p class="zxs-email"><span>id:{{ id }}</span></p>
+        <p class="zxs-operation"><span class="operation" @click="removeCookie">退出</span></p>
       </div>
     </div>
     <div class="center-nav">
@@ -57,14 +57,39 @@
   </div>
 </template>
 <script>
+var operation = document.getElementsByClassName('operation')
 /* import axios from 'axios' */
 export default {
   data () {
     return {
+      username: '',
+      id: ''
       /* center: [] */
     }
   },
+  methods: {
+    getCookie (key) {
+      var cookieStr = document.cookie
+      var arr = cookieStr.split('; ')
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].split('=')[0] === key) {
+          return arr[i].split('=')[1]
+        }
+      }
+      return ''
+    },
+    removeCookie () {
+      console.log(this.username)
+      document.cookie = 'username' + '=; expires=' + new Date(0)
+      document.cookie = 'id' + '=; expires=' + new Date(0)
+      this.$router.push('./login')
+    }
+  },
   mounted () {
+    this.username = this.getCookie('username')
+    this.id = this.getCookie('id')
+    /* console.log(this.username)
+    console.log(this.id) */
     /* const proxy = 'https://bird.ioliu.cn/v1/?url='
     axios.get(proxy + 'https://m.maizuo.com/v4/api/me')
       .then(result => {
