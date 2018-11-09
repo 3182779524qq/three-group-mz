@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="zxs-center">
     <div class="center-header-wrap">
       <img src="../../static/img/zxs_my.jpg" class="avatar">
       <div class="userMessage">
@@ -57,7 +57,6 @@
   </div>
 </template>
 <script>
-var operation = document.getElementsByClassName('operation')
 /* import axios from 'axios' */
 export default {
   data () {
@@ -108,6 +107,10 @@ export default {
   body{
     background:#EBEBEB;
     height:100%;
+  }
+  .zxs-center{
+    flex:1;
+    overflow:auto;
   }
   .center-header-wrap{
     background-color: #303030;
