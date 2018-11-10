@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg">
     <div class="pb-warp">
         <div class="wap-header">
             <a href="" class="go-back"></a>
@@ -98,6 +98,10 @@ export default {
 }
 </script>
 <style scoped>
+.bg{
+  background: #EBEBEB;
+  height: 6.17rem;
+}
 .pb-wrap{
     padding-bottom:30px;
     overflow: hidden;

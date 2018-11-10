@@ -64,7 +64,7 @@ export default {
   methods: {
     gethome () {
       axios.get(proxy + 'https://m.maizuo.com/v4/api/billboard/home').then(result => {
-        console.log(result)
+        // console.log(result)
         this.slider = result.data.data.billboards
         var mySwiper = new Swiper('.swiper-container', {
           autoplay: true,
@@ -73,18 +73,18 @@ export default {
           autoplayDisableOnInteraction: false,
           runCallbacksOnInit: true
         })
-        mySwiper.reLoop()
+        mySwiper.update()
       }).catch()
     },
     getcomming () {
       axios.get(proxy + 'https://m.maizuo.com/v4/api/film/coming-soon?__t=1541554225956&page=1&count=3').then(result => {
-        console.log(result)
+        // console.log(result)
         this.commingsoon = result.data.data.films
       }).catch()
     },
     getnow () {
       axios.get(proxy + 'https://m.maizuo.com/v4/api/film/now-playing?__t=1541554225950&page=1&count=5').then(result => {
-        console.log(result)
+        // console.log(result)
         this.nowplaying = result.data.data.films
       }).catch()
     },
@@ -109,6 +109,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#hone{
+  flex: 1;
+  overflow: auto;
+}
 .card{
   width: 3.4rem;
   /* margin-left: 0.17rem; */

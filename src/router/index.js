@@ -74,10 +74,20 @@ const router = new Router({
   ]
 })
 router.beforeEach(function (to, from, next) {
-  console.log(to)
-  console.log(document.cookie)
+  function getCookie (key) {
+    var cookieStr = document.cookie
+    var arr = cookieStr.split('; ')
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].split('=')[0] === key) {
+        return arr[i].split('=')[1]
+      }
+    }
+    return ''
+  }
+  // console.log(to)
+  // console.log(getCookie('username'))
   if (to.meta.needLogin) {
-    if (document.cookie) {
+    if (getCookie('username')) {
       next()
     } else {
       next('/login')

@@ -152,7 +152,7 @@ export default {
     display:flex;
     background-color: white;
     padding: 0 0.1rem;
-    width: 100%;
+    /* width: 100%; */
     margin: 0.14rem 0;
     line-height: 0.59rem;
     cursor: pointer;
@@ -178,7 +178,7 @@ export default {
     height:0.11rem;
     position:absolute;
     top:0.25rem;
-    right:0.35rem;
+    right:0.15rem;
   }
   .ticket-num{
     color:red;
@@ -196,7 +196,7 @@ export default {
     display:flex;
     background-color: white;
     padding: 0 0.1rem;
-    width: 100%;
+    /* width: 100%; */
     /* margin: 0.14rem 0; */
     border-bottom:0.01rem solid #F5F5F5;
     line-height: 0.59rem;
@@ -221,7 +221,7 @@ export default {
     display:flex;
     background-color: white;
     padding: 0 0.1rem;
-    width: 100%;
+    /* width: 100%; */
     /* margin: 0.14rem 0; */
     line-height: 0.59rem;
     cursor: pointer;
